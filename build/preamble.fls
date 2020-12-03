@@ -1,0 +1,8 @@
+PWD C:/Users/akash/Downloads/Math Stuff/Hrbacek and Jech - Introduction To Set Theory
+INPUT c:/texlive/2019/texmf.cnf
+INPUT c:/texlive/2019/texmf-dist/web2c/texmf.cnf
+INPUT c:/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT preamble.tex
+OUTPUT build/preamble.log
+INPUT c:/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm

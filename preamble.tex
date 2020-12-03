@@ -1,0 +1,43 @@
+% This is a file containing commonly used environments and such to remove clutter from other files
+
+% Common packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, enumitem}
+% \usepackage{ntheorem, thmtools}
+
+
+
+% Environments
+
+% Problem Environment
+\theoremstyle{definition}
+\newtheorem{problem-internal}{Problem}[section]
+\newenvironment{problem}{
+  \medskip
+  \begin{problem-internal}
+}{
+\end{problem-internal}
+}
+
+% Solution Environment
+\newenvironment{solution}{
+  \begin{proof}[Solution]
+    \vspace{-2px}
+    \setlength{\parskip}{4px}
+    \setlength{\parindent}{0px}
+}{
+\end{proof}
+}
+
+% Axiom Environment
+\newtheoremstyle{emptyplain}
+    {}          % default space above
+    {}          % default space below
+    {\itshape}  % body font
+    {}          % no indent
+    {\bfseries} % head font
+    {.}         % punctuation after theorem head
+    { }         % space after theorem head
+    {#3}
+\theoremstyle{emptyplain}
+\newtheorem*{axiom}{}

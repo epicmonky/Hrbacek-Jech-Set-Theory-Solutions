@@ -1,0 +1,149 @@
+\documentclass[class=report, crop=false]{standalone}
+\input{preamble}
+
+\begin{document}
+  \chapter{Sets}
+
+  \section{Introduction to Sets}
+
+  No exercises.
+
+  \section{Properties}
+
+  No exercises
+
+  \section{The Axioms}
+
+  % Problem 3.1
+  \begin{problem}
+    Show that the set of all \(x\) such that \(x \in A\) and \(x \notin B\) exists.
+  \end{problem}
+
+  \begin{solution}
+    Consider the property \(\textbf{P}(x, B)\): ``\(x \notin B\)." Then, by the Comprehension Schema, for every \(A\) and \(B\) there exists a set \(C\) such that \(x \in C\) if and only if \(x \in A\) and \(\textbf{P}(x, B)\), or if and only if \(x \in A\) and \(x \notin B\).
+  \end{solution}
+
+
+  % Problem 3.2
+  \begin{problem}
+    Replace the Axiom of Existence by the following weaker postulate:
+    \begin{axiom}[Weak Axiom of Existence]
+      Some set exists.
+    \end{axiom}
+    Prove the Axiom of Existence using the Weak Axiom of Existence and the Comprehension Schema. [\textit{Hint}: Let \(A\) be a set known to exist; consider \(\{x \in A \mid x \neq x\}\).]
+  \end{problem}
+
+  \begin{solution}
+    Recall that the Axiom of Existence states that there exists a set which has no elements. Let \(A\) be a set known to exist, which is guaranteed by the Weak Axiom of Existence. Consider the property \(\textbf{P}(x)\): ``\(x \neq x\)."
+    Then, by the Comprehension Schema, there is a set \(B\) such that \(x \in B\) if and only if \(x \in A\) and \(\textbf{P}(x)\), or \(x \in A\) and \(x \neq x\). However, we have that \(\forall x : x = x\). That is, there is no \(x\) such that \(x \neq x\). In particular, the set \(B\) has no elements so there exists a set which has no elements.
+  \end{solution}
+
+
+  % Problem 3.3
+  \begin{problem}
+    \hfill
+    \begin{enumerate}[label={(\alph*)}]
+      \item Prove that a "set of all sets" does not exist. [\textit{Hint}: if \(V\) is a set of all sets, consider \(\{x \in V \mid x \notin x\)\}.]
+
+      \item Prove that for any set \(A\) there is some \(x \notin A\).
+    \end{enumerate}
+  \end{problem}
+
+  \begin{solution}
+    \hfill
+    \begin{enumerate}[label={(\alph*)}]
+      \item Suppose that there exists a set \(V\) containing all sets. Consider the property \(\textbf{P}(x)\): ``\(x \notin x\)." By the Comprehension Schema, there exists a set \(X = \{x \in V \mid \textbf{P}(x)\} = \{x \in V \mid x \notin x\}\). That is, \(X \in V\) because it's a set.
+
+      We either have that \(X \in X\) or \(X \notin X\). If \(X \in X\), then \(X \in V\) and \(X \notin X\), a contradiction. If \(X \notin X\), then \(X \in V\) and \(X \notin X\) imply that \(X \in X\), another contradiction.
+      Since every step is true, it must be the case that our original assumption of the existence of \(V\) is false.
+
+      \item Suppose there is a set \(A\) such that \(\forall x : x \in A\). Since every object \(x\) we have constructed so far is a set, \(A\) is a "set of all sets" which we have shown cannot exist.
+    \end{enumerate}
+  \end{solution}
+
+
+  % Problem 3.4
+  \begin{problem}
+    Let \(A\) and \(B\) be sets. Show that there exists a unique set \(C\) such that \(x \in C\) if and only if either \(x \in A\) and \(x \notin B\) or \(x \in B\) and \(x \notin A\).
+  \end{problem}
+
+  \begin{solution}
+    By Problem 1.3.1, the following two sets exist:
+    \begin{gather*}
+      C_{1} = \{x \mid x \in A \text{ and } x \notin B\} \\
+      C_{2} = \{x \mid x \in B \text{ and } x \notin A\}
+    \end{gather*}
+    By the Axiom of Union, there is a set \(C = C_{1} \cup C_{2}\) such that \(x \in C\) if and only if \(x \in C_{1}\) or \(x \in C_{2}\). That is,
+    \begin{gather*}
+      C = \{x \mid \left(x \in A \text{ and } x \notin B\right) \text{ or } \left(x \in B \text{ and } x \notin A\right)\}
+    \end{gather*}
+    Thus, \(C\) exists. If \(C'\) is another set satisfying the hypothesis, then \(x \in C\) if and only if \(x \in C'\) so by the Axiom of Extensionality, \(C = C'\). That is, \(C\) is unique. In general, the union of sets is unique.
+  \end{solution}
+
+
+  % Problem 3.5
+  \begin{problem}
+    \hfill
+    \begin{enumerate}[label={(\alph*)}]
+      \item Given \(A, B, \text{ and } C\), there is a set \(P\) such that \(x \in P\) if and only if \(x = A\) or \(x = B\) or \(x = C\).
+
+      \item Generalize to four elements.
+    \end{enumerate}
+  \end{problem}
+
+  \begin{solution}
+    \hfill
+    \begin{enumerate}[label={(\alph*)}]
+      \item By the Axiom of Pair, the following three sets exist:
+      \begin{gather*}
+        P_{A} = \{x \mid x = A\} = \{A\} \\
+        P_{B} = \{x \mid x = B\} = \{B\} \\
+        P_{C} = \{x \mid x = C\} = \{C\}
+      \end{gather*}
+      Then by the Axiom of Union, there is a set \(P = \bigcup \{P_{A}, P_{B}, P_{C}\}\) such that \(x \in P\) if and only if \(x \in S\) for some \(S \in P\).
+      That is, \(x \in S\) if and only if \(x \in P_{A}\) or \(x \in P_{B}\) or \(x \in P_{C}\) if and only if \(x = A\) or \(x = B\) or \(x = C\).
+
+      \item Again by the Axiom of Pair, there exists a set \(P_{D} = \{x \mid x = D\} = \{D\}\). Again by the Axiom of Union, there is a set \(P = \bigcup \{P_{A}, P_{B}, P_{C}, P_{D}\}\) such that \(x \in P\) if and only if \(x = A\) or \(x = B\) or \(x = C\) or \(x = D\).
+    \end{enumerate}
+  \end{solution}
+
+
+  % Problem 3.6
+  \begin{problem}
+    Show that \(\mathcal{P}(X) \subseteq X\) is false for any \(X\). In particular, \(\mathcal{P}(X) \neq X\) for any \(X\). This proves again that a "set of all sets" does not exist.
+    [\textit{Hint}: Let \(Y = \{u \in X \mid u \notin u\}\); \(Y \in \mathcal{P}(X)\) but \(Y \notin X\).]
+  \end{problem}
+
+  \begin{solution}
+    Let \(X\) be any set and define \(Y = \{u \in X \mid u \notin u\}\). Certainly \(Y \subseteq X\) because \(x \in Y\) implies \(x \in X\). Thus, \(Y \in \mathcal{P}(X)\) by the Axiom of Powerset.
+    Suppose \(Y \in X\). We either have \(Y \in Y\) or \(Y \notin Y\). If \(Y \in Y\) then we have \(Y \notin Y\), a contradiction. On the other hand, if \(Y \notin Y\), then it is implied that \(Y \in Y\), another contradiction.
+    Thus, our assumption that \(Y \in X\) must be false. Therefore, there is an element in \(\mathcal{P}(X)\) which does not belong to \(X\) so \(\mathcal{P}(X) \not\subseteq X\).
+  \end{solution}
+
+
+  % Problem 3.7
+  \begin{problem}
+    The Axiom of Pair, the Axiom of Union, and the Axiom of Power Set can be replaced by the following weaker versions.
+    \begin{axiom}[Weak Axiom of Pair]
+      For any \(A\) and \(B\), there is a set \(C\) such that \(A \in C\) and \(B \in C\).
+    \end{axiom}
+    \begin{axiom}[Weak Axiom of Union]
+      For any set \(S\), there exists \(U\) such that if \(X \in A\) and \(A \in S\), then \(X \in U\).
+    \end{axiom}
+    \begin{axiom}[Weak Axiom of Power Set]
+      For any set \(S\), there exists \(P\) such that \(X \subseteq S\) implies \(X \in P\).
+    \end{axiom}
+    Prove the Axiom of Pair, the Axiom of Union, and the Axiom of Power Set using these weaker versions. [\textit{Hint}: Use also the Comprehension Schema.]
+  \end{problem}
+
+  \begin{solution}
+    By the Weak Axiom of Pair, there exists a set \(C'\) such that \(A \in C'\) and \(B \in C'\). Consider the property \(\textbf{P}(x, A, B)\): ``\(x = A\) or \(x = B\)." By the Comprehension Schema, there exists a set \(C\) such that \(x \in C\) if and only if \(x \in C'\) and \(\textbf{P}(x, A, B)\).
+    That is, for any sets \(A\) and \(B\), there exists a set \(C\) such that \(x \in C\) if and only if \(x = A\) or \(x = B\), which is the Axiom of Pair.
+
+    By the Weak Axiom of Union, there exists a set \(U'\) for all \(S\) such that if \(X \in A\) and \(A \in S\) then \(X \in U'\). Consider the property \(\textbf{P}(X, A, S)\): ``\(\exists A \in S\) such that \(X \in A\)." By the Comprehension Schema, there exists a set \(U\) such that \(X \in U\) if and only if \(X \in U'\) and \(\textbf{P}(X, A, S)\).
+    That is, for any set \(S\), there exists a set \(U\) such that \(X \in U\) if and only if there exists \(A \in S\) such that \(X \in A\), which is the Axiom of Union.
+
+    By the Axiom of Power Set, there exists a set \(P'\) such that \(X \in P'\) if and only if \(X \subseteq S\). Consider the property \(\textbf{P}(X, S)\): ``\(X \subseteq S\)." By the Comprehension Schema, there exists a set \(P\) such that \(X \in C\) if and only if \(X \in P'\) and \(\textbf{P}(X, S)\).
+    That is, for any set \(S\), there exists a set \(P\) such that \(X \in P\) if and only if \(X \subseteq S\).
+  \end{solution}
+\end{document}
