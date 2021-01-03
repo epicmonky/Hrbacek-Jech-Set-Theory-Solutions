@@ -80,6 +80,7 @@
     Thus, \(C\) exists. If \(C'\) is another set satisfying the hypothesis, then \(x \in C\) if and only if \(x \in C'\) so by the Axiom of Extensionality, \(C = C'\). That is, \(C\) is unique. In general, the union of sets is unique.
   \end{solution}
 
+  \pagebreak
 
   % Problem 3.5
   \begin{problem}
@@ -147,5 +148,218 @@
     That is, for any set \(S\), there exists a set \(P\) such that \(X \in P\) if and only if \(X \subseteq S\).
   \end{solution}
 
+
+  \section{Elementary Operations on Sets}
+
+  % Problem 4.1
+  \begin{problem}
+    Prove all the displayed formulas in this section and visualize them using Venn diagrams.
+  \end{problem}
+
+  \begin{solution}
+    I'll omit the Venn diagrams but I may return and add them later.
+    \begin{enumerate}[label=({\alph*})]
+      \item Commutativity:
+      \begin{gather*}
+        A \cap B = B \cap A \\
+        A \cup B = B \cup A
+      \end{gather*}
+
+      \begin{proof}\
+        Let \(x \in A \cap B\). Then \(x \in A\) and \(x \in B\). That is, \(x \in B\) and \(x \in A\) so \(x \in B \cap A\).
+        The reverse argument is identical so \(A \cap B = B \cap A\). A similar argument proves that \(A \cup B = B \cup A\).
+      \end{proof}
+
+      \item Associativity:
+      \begin{gather*}
+        (A \cap B) \cap C = A \cap (B \cap C) \\
+        (A \cup B) \cup C = A \cup (B \cup C)
+      \end{gather*}
+
+      \begin{proof}
+        Let \(x \in (A \cap B) \cap C\). Then \(x \in A \cap B\) and \(x \in C\). That is, \(x \in A\), \(x \in B\), and \(x \in C\). So \(x \in B \cap C\). Therefore, \(x \in A \cap (B \cap C)\).
+        The reverse argument is identical and the proof is similar for set union.
+      \end{proof}
+
+      \item Distributivity:
+      \begin{gather*}
+        A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \\
+        A \cup (B \cap C) = (A \cup B) \cap (A \cup C)
+      \end{gather*}
+
+      \begin{proof}
+        Let \(x \in A \cap (B \cup C)\). Then \(x \in A\) and \(x \in B \cup C\). That is, \(x \in B\) or \(x \in C\).
+        Therefore, \(x \in A\) and \(x \in B\) or \(x \in A\) and \(x \in C\). Thus, \(x \in (A \cap B) \cup (A \cap C)\).
+
+        On the other hand, let \(x \in (A \cap B) \cup (A \cap C)\). Then \(x \in (A \cap B)\) or \(x \in (A \cap C)\).
+        In the first case, \(x \in A\) and \(x \in B\), so \(x \in A\) and \(x \in (B \cup C)\). In the second case, \(x \in A\) and \(x \in C\), so \(x \in A\) and \(x \in (B \cup C)\).
+        In either case, it follows that \(x \in A \cap (B \cup C)\). A highly similar argument proves the second statement.
+      \end{proof}
+
+      \item De Morgan's Laws:
+      \begin{gather*}
+        C - (A \cap B) = (C - A) \cup (C - B) \\
+        C - (A \cup B) = (C - A) \cap (C - B)
+      \end{gather*}
+
+      \begin{proof}\renewcommand{\qedsymbol}{}
+        Let \(x \in C - (A \cap B)\). Then \(x \in C\) and \(x \notin A \cap B\).
+        That is, \(x \in C\), but \(x \notin A\) or \(x \notin B\). If \(x \notin A\), then \(x \in C - A\) so \(x \in (C - A) \cup (C - B)\).
+        Similarly, if \(x \notin B\), then \(x \in C - B\) so \(x \in (C - A) \cup (C - B)\).
+
+        For the reverse direction, let \(x \in (C - A) \cup (C - B)\). Then \(x \in C - A\) or \(x \in C - B\).
+        In the first case, we have \(x \in C\) and \(x \notin A\), so \(x \notin (A \cap B)\). Thus, \(x \in C - (A \cap B)\).
+        In the second case, we have \(x \in C\) and \(x \notin B\), so \(x \notin (A \cap B)\). Again, we have \(x \in C - (A \cap B)\). A similar argument proves the second statement.
+      \end{proof}
+    \end{enumerate}
+  \end{solution}
+
+  % Problem 4.2
+  \begin{problem}
+    Prove the following statements.
+  \end{problem}
+
+  \begin{solution}
+    There are 7 :(
+    \begin{enumerate}[label=({\alph*})]
+      \item \(A \subseteq B\) if and only if \(A \cap B = A\) if and only if \(A \cup B = B\) if and only if \(A - B = \emptyset\)
+
+      \begin{proof}
+        Suppose \(A \subseteq B\). If \(x \in A \cap B\), then \(x \in A\) and \(x \in B\). In particular, \(x \in A\) so \(A \cap B \subseteq A\).
+        If \(x \in A\), then \(x \in B\) since \(A \subseteq B\). Thus, \(x \in A \cap B\) so \(A \subseteq A \cap B\). This implies \(A \cap B = A\).
+
+        Now suppose \(A \cap B = A\). If \(x \in B\), then \(x \in A \cup B\) by definition. Thus, \(B \subseteq A \cup B\).
+        If \(x \in A \cup B\) then \(x \in A\) or \(x \in B\). If \(x \in A\), then \(x \in A \cap B\) so \(x \in B\).
+        In either case, \(x \in B\) so \(A \cup B \subseteq B\). This implies \(A \cup B = B\).
+
+        Assume that \(A \cup B = B\). Suppose \(A - B\) is nonempty and let \(x \in A - B\). Then \(x \in A\) and \(x \notin B\).
+        If \(x \in A\) then \(x \in A \cup B\). However, if \(x \notin B\) and \(A \cup B = B\), we have \(x \notin A \cup B\).
+        A contradiction arises so we must have \(A - B = \emptyset\).
+
+        Finally, assume \(A - B = \emptyset\). Let \(x \in A\). Then either \(x \in B\) or \(x \notin B\).
+        If \(x \notin B\), then we have \(x \in A\) and \(x \notin B\), so \(x \in A - B\), a contradiction.
+        Thus, \(x \in B\) and \(A \subseteq B\).
+      \end{proof}
+
+      \item \(A \subseteq B \cap C\) if and only if \(A \subseteq B\) and \(A \subseteq C\).
+
+      \begin{proof}
+        First suppose \(A \subseteq B \cap C\). Let \(x \in A\). Then \(x \in B \cap C\), so \(x \in B\) and \(x \in C\). Thus, \(A \subseteq B\) and \(A \subseteq C\).
+
+        For the reverse direction, suppose \(A \subseteq B\) and \(A \subseteq C\). Let \(x \in A\). Then \(x \in B\) and \(x \in C\), so \(x \in B \cap C\). Hence, \(A \subseteq B \cap C\).
+      \end{proof}
+
+      \item \(B \cup C \subseteq A\) if and only if \(B \subseteq A\) and \(C \subseteq A\).
+
+      \begin{proof}
+        Suppse \(B \cup C \subseteq A\). If \(x \in B\) then \(x \in B \cup C\), so \(x \in A\). Thus, \(B \subseteq A\). Similarly, \(C \subseteq C\).
+
+        Now suppose \(B \subseteq A\) and \(C \subseteq A\). Let \(x \in B \cup C\). Then \(x \in B\) or \(x \in C\).
+        In either case, \(x \in A\), so \(B \cup C \subseteq A\).
+      \end{proof}
+
+      \item \(A - B = (A \cup B) - B = A - (A \cap B)\)
+
+      \begin{proof}
+        Let \(x \in A - B\). That is, \(x \in A\) and \(x \notin B\). Then \(x \in A \cup B\) and \(x \notin B\) so \(x \in (A \cup B) - B\). Thus, \(A - B \subseteq (A \cup B) - B\).
+        Now let \(x \in (A \cup B) - B\) so that \(x \in (A \cup B)\) and \(x \notin B\). It follows that \(x \in A\) and \(x \notin B\) so \(x \in A - B\) and \((A \cup B) - B \subseteq A - B\).
+        This implies that \(A - B = (A \cup B) - B\).
+
+        Suppose \(x \in A - B\). It follows that \(x \in A\) and \(x \notin B\). Then \(x \notin A \cap B\) so \(x \in A - (A \cap B)\). Hence, \(A - B \subseteq A - (A \cap B)\).
+        For the reverse, suppose \(x \in A - (A \cap B)\). That is, \(x \in A\) and \(x \notin A \cap B\). Then \(x \notin B\) so \(x \in A - B\), showing that \(A - (A \cap B) \subseteq A - B\).
+        Together, it is implied that \(A - B = A - (A \cap B)\).
+      \end{proof}
+
+      \item \(A \cap B = A - (A - B)\).
+
+      \begin{proof}
+        Let \(x \in A \cap B\). Then \(x \in A\) and \(x \in B\). It follows that \(x \notin A - B\). Thus, \(x \in A - (A - B)\) so \(A \cap B \subseteq A - (A - B)\).
+
+        Now let \(x \in A - (A - B)\). That is, \(x \in A\) and \(x \notin A - B\). The latter implies that \(x \in B\) (since otherwise it would be in the difference).
+        Therefore, \(x \in A \cap B\) so \(A - (A - B) \subseteq A \cap B\) and the two sets are equal.
+      \end{proof}
+
+      \item \(A - (B - C) = (A - B) \cup (A \cap C)\).
+
+      \begin{proof}
+        Let \(x \in A - (B - C)\). That is, \(x \in A\) and \(x \notin B - C\).
+        Suppose that \(x \notin (A - B) \cup (A \cap C)\). Then it must be the case that \(x \in B\) and \(x \notin C\). If this were the case, \(x \in B - C\).
+        By contraposition, if \(x \notin B - C\) it follows that \(x \in (A - B) \cup (A \cap C)\). Therefore, \(A - (B - C) \subseteq (A - B) \cup (A \cap C)\).
+
+        Now let \(x \in (A - B) \cup (A \cap C)\) so \(x \in A - B\) or \(x \in A \cap C\).
+        In the first case, \(x \in A\) and \(x \notin B\). If \(x \notin B\) then \(x \notin B - C\), so \(x \in A - (B - C)\).
+        In the second case, \(x \in A\) and \(x \in C\). If \(x \in C\) then \(x \notin B - C\), so \(x \in A - (B - C)\).
+        Thus, either case shows that \((A - B) \cup (A \cap C) \subseteq A - (B - C)\). Together, these statements imply \(A - (B - C) = (A - B) \cup (A \cap C)\).
+      \end{proof}
+
+      \item \(A = B\) if and only if \(A \triangle B = \emptyset\).
+
+      \begin{proof}\renewcommand{\qedsymbol}{}
+        Assume \(A = B\). Recall that \(A \triangle B = (A - B) \cup (B - A)\).
+        \(A = B\) implies \(A \subseteq B\) and \(B \subseteq A\), and in (a) we proved that \(A \subseteq B\) if and only if \(A - B = \emptyset\).
+        It follows that \(A - B = \emptyset\) and \(B - A = \emptyset\), so \(A \triangle B = \emptyset\).
+
+        Now assume \(A \triangle B = \emptyset\). That is, \(A - B = \emptyset\) and \(B - A = \emptyset\). Again by (a), this is the case if and only if \(A \subseteq B\) and \(B \subseteq A\), so we have \(A = B\).
+      \end{proof}
+    \end{enumerate}
+  \end{solution}
+
+  % Problem 4.3
+  \begin{problem}
+    For each of the following (false) statements draw a Venn diagram in which it fails:
+  \end{problem}
+
+  \begin{solution}
+    I'll add this when I'm more familiar with making Venn diagrams in \LaTeX (AKA I'm procrastinating)
+  \end{solution}
+
+  % Problem 4.4
+  \begin{problem}
+    Let \(A\) be a set; show that a ``complement" of \(A\) does not exist. (The ``complement" of \(A\) is the set of all \(x \notin A\).)
+  \end{problem}
+
+  \begin{solution}
+    Suppose such a set exists, say \(B\). Then consider \(A \cup B\) to get the universal set, which does not exist. Thus \(B\) does not exist.
+  \end{solution}
+
+  % Problem 4.5
+  \begin{problem}
+    Let \(S \neq \emptyset\) and \(A\) be sets.
+    \begin{enumerate}[label=({\alph*})]
+      \item Set \(T_{1} = \{ Y \in \mathcal{P}(A) \mid Y = A \cap X \text{ for some } X \in S\}\), and prove \(A \cap \bigcup S = \bigcup T_{1}\) (generalized distributive law).
+      \item Set \(T_{2} = \{Y \in \mathcal{P}(A) \mid Y = A - X \text{ for some } X \in S\}\), and prove
+      \begin{gather*}
+        A - \bigcup S = \bigcap T_{2} \\
+        A - \bigcap S = \bigcup T_{2}
+      \end{gather*}
+      (generalized De Morgan laws).
+    \end{enumerate}
+  \end{problem}
+
+  \begin{solution}
+    Recall that \(S \neq \emptyset\).
+    \begin{enumerate}[label=({\alph*})]
+      \item \(x \in A \cap \bigcup S\) if and only if \(x \in A\) and \(\exists X \in S\) such that \(x \in X\).
+      That is, \(x \in A \cap \bigcup S\) if and only if \(x \in T_{1}\).
+
+      \item Let \(x \in A - \bigcup S\). That is, \(x \in A\) and \(x \notin \bigcup S\). Thus, for all \(X \in S\), we have \(x \notin X\).
+      Therefore, for all \(X \in S\), we have \(x \in A - X\). Hence, \(x \in A - \bigcup S\) if and only if \(x \in \bigcap T_{2}\).
+
+      Similarly, let \(x \in A - \bigcap S\). Then \(x \in A\) and \(\exists X \in S\) such that \(x \notin X\).
+      That is, \(\exists Y \in \mathcal{P}(A)\) such that \(x \in Y\). Thus, \(x \in A - \bigcap S\) if and only if \(x \in \bigcup T_{2}\).
+    \end{enumerate}
+  \end{solution}
+
+  % Problem 4.6
+  \begin{problem}
+    Prove that \(\bigcap S\) exists for all \(S \neq \emptyset\). Where is the assumption \(S \neq \emptyset\) used in the proof?
+  \end{problem}
+
+  \begin{solution}
+    If \(S \neq \emptyset\), then \(\exists A \in S\). Consider the property \(\textbf{P}(x)\): ``\(x \in X\) for all \(X \in S\)."
+    Then \(\bigcap S = \{x \in A \mid \textbf{P}(x)\}\) exists by the Axiom Schema of Comprehension.
+
+    If \(S = \emptyset\), then \(\bigcap S\) is a universal set. Indeed, if it were not then there would exist a set \(A \in \emptyset\) such that \(x \notin A\), but no such set exists.
+  \end{solution}
 
 \end{document}
